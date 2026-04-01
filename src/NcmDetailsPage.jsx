@@ -300,6 +300,35 @@ const NAV_ITEMS = [
   { label: 'Comments' },
 ]
 
+function NavItem({ item }) {
+  const [hovered, setHovered] = useState(false)
+  const bg     = item.active ? '#d4d3ce' : hovered ? '#f2f2f2' : 'transparent'
+  const color  = item.active || hovered ? '#000000' : '#575655'
+  const weight = item.active ? 600 : 400
+  const accent = item.active ? '3px solid #000000' : '3px solid transparent'
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        padding: '10px 24px',
+        fontFamily: F_BODY,
+        fontSize: 14,
+        lineHeight: '18px',
+        color,
+        fontWeight: weight,
+        cursor: 'pointer',
+        borderLeft: accent,
+        background: bg,
+        transition: 'background 80ms ease, color 80ms ease',
+      }}
+    >
+      {item.label}
+    </div>
+  )
+}
+
 function LeftNav() {
   const [expanded, setExpanded] = useState(true)
 
@@ -341,22 +370,7 @@ function LeftNav() {
       {expanded && (
         <nav style={{ flex: 1, minHeight: 0, overflowY: 'auto' }}>
           {NAV_ITEMS.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                padding: '10px 24px',
-                fontFamily: F_BODY,
-                fontSize: 14,
-                lineHeight: '18px',
-                color: item.active ? '#3f3e3d' : '#575655',
-                fontWeight: item.active ? 600 : 400,
-                cursor: 'pointer',
-                borderLeft: item.active ? '3px solid #fcd515' : '3px solid transparent',
-                background: item.active ? '#fafafa' : 'transparent',
-              }}
-            >
-              {item.label}
-            </div>
+            <NavItem key={item.label} item={item} />
           ))}
         </nav>
       )}
