@@ -1,4 +1,7 @@
 import { useState } from 'react'
+
+const F_HEADLINE = '"GermanedgeSans", "Arial", sans-serif'
+const F_BODY     = '"GermanedgeSansCn", "Arial Narrow", "Arial", sans-serif'
 import Button from './Button.jsx'
 import ToggleSwitch, { UncontrolledToggle } from './ToggleSwitch.jsx'
 import Accordion from './Accordion.jsx'
@@ -52,10 +55,10 @@ export default function App() {
 
           {/* ── Page header ───────────────────────────────────────────────── */}
           <div style={{ marginBottom: '56px' }}>
-            <h1 style={{ margin: '0 0 4px', fontSize: '24px', fontWeight: 600, color: '#1a1a1a' }}>
+            <h1 style={{ margin: '0 0 4px', fontSize: '24px', fontWeight: 700, color: '#3f3e3d', fontFamily: F_HEADLINE }}>
               Inspire Design System
             </h1>
-            <p style={{ margin: 0, fontSize: '14px', color: '#6f6e6d' }}>
+            <p style={{ margin: 0, fontSize: '14px', color: '#6f6e6d', fontFamily: F_BODY }}>
               Components — all variants &amp; states
             </p>
           </div>
@@ -63,8 +66,8 @@ export default function App() {
           {/* ── Buttons ───────────────────────────────────────────────────── */}
           <section id="section-buttons" style={{ marginBottom: '64px' }}>
             <div style={{ marginBottom: '24px' }}>
-              <h2 style={{ margin: '0 0 4px', fontSize: '18px', fontWeight: 600, color: '#1a1a1a' }}>Buttons</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: '#6f6e6d' }}>Primary, Secondary, and Ghost — text and icon-only variants</p>
+              <h2 style={{ margin: '0 0 4px', fontSize: '18px', fontWeight: 700, color: '#3f3e3d', fontFamily: F_HEADLINE }}>Buttons</h2>
+              <p style={{ margin: 0, fontSize: '13px', color: '#6f6e6d', fontFamily: F_BODY }}>Primary, Secondary, and Ghost — text and icon-only variants</p>
             </div>
 
             {/* Interactive */}
@@ -171,8 +174,8 @@ export default function App() {
           {/* ── Toggle Switch ──────────────────────────────────────────────── */}
           <section id="section-toggle" style={{ marginBottom: '64px' }}>
             <div style={{ marginBottom: '24px' }}>
-              <h2 style={{ margin: '0 0 4px', fontSize: '18px', fontWeight: 600, color: '#1a1a1a' }}>Toggle Switch</h2>
-              <p style={{ margin: 0, fontSize: '13px', color: '#6f6e6d' }}>Enabled and disabled — with and without label</p>
+              <h2 style={{ margin: '0 0 4px', fontSize: '18px', fontWeight: 700, color: '#3f3e3d', fontFamily: F_HEADLINE }}>Toggle Switch</h2>
+              <p style={{ margin: 0, fontSize: '13px', color: '#6f6e6d', fontFamily: F_BODY }}>Enabled and disabled — with and without label</p>
             </div>
 
             {/* Interactive */}
@@ -255,14 +258,14 @@ export default function App() {
 
 // ── Shared style helpers ──────────────────────────────────────────────────────
 
-const subhead = { margin: '0 0 2px', fontSize: '14px', fontWeight: 600, color: '#1a1a1a' }
-const subtext  = { margin: 0, fontSize: '13px', color: '#6f6e6d' }
-const variantLabel = { fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#9e9d9d', marginBottom: '12px' }
-const colLabel = { fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6f6e6d' }
+const subhead = { margin: '0 0 2px', fontSize: '14px', fontWeight: 600, color: '#3f3e3d', fontFamily: F_HEADLINE }
+const subtext  = { margin: 0, fontSize: '13px', color: '#6f6e6d', fontFamily: F_BODY }
+const variantLabel = { fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#9e9d9d', marginBottom: '12px', fontFamily: F_BODY }
+const colLabel = { fontSize: '12px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6f6e6d', fontFamily: F_BODY }
 
 const interactiveCard = {
   display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center',
-  background: '#ffffff', borderRadius: '8px', padding: '32px 40px', border: '1px solid #e7e6e6',
+  background: '#ffffff', borderRadius: '4px', padding: '32px 40px', boxShadow: '0 1px 4px rgba(0,0,0,0.18)',
 }
 
 const interactiveCell = {
@@ -275,7 +278,7 @@ function cellBg(variant, state) {
 }
 
 function th(extra = {}) {
-  return { fontFamily: 'sans-serif', fontWeight: 600, fontSize: '13px', color: '#3f3e3d', padding: '8px 16px', border: 'none', background: 'transparent', ...extra }
+  return { fontFamily: F_BODY, fontWeight: 600, fontSize: '13px', color: '#3f3e3d', padding: '8px 16px', border: 'none', background: 'transparent', ...extra }
 }
 
 function td(extra = {}) {

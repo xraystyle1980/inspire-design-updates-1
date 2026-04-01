@@ -99,7 +99,7 @@ body {
 
 .page {
   min-height: 100%;
-  background: var(--adk-a00);
+  background: var(--adk-a10);
   padding-block: var(--sp-09);  /* 48px top/bottom */
   font-family: var(--font-body);
   color: var(--adk-a80);
