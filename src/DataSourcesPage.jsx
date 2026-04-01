@@ -103,7 +103,7 @@ const FilterIcon = () => (
 )
 
 const SmallAddIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
     <path d="M7 1v12M1 7h12" stroke="#3f3e3d" strokeWidth="1.5" strokeLinecap="round"/>
   </svg>
 )
@@ -397,26 +397,22 @@ function LeftNav({ selectedCard, onSelectCard }) {
             <FilterIcon />
           </button>
 
-          {/* Small circular Add button — mirrors primary iconOnly: border sits outside bg area */}
+          {/* Circular Add button — 24×24 border-box */}
           <button
             aria-label="Add data source"
             style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              display: 'inline-flex',
-              outline: 'none',
-              flexShrink: 0,
+              background: 'none', border: 'none', padding: 0,
+              cursor: 'pointer', display: 'inline-flex',
+              outline: 'none', flexShrink: 0,
             }}
           >
-            {/* Shell — content-box so 2px border adds to the outside of the 20px yellow area = 24px total */}
             <div style={{
-              width: 20,
-              height: 20,
+              width: 24,
+              height: 24,
               borderRadius: '50%',
               background: '#fcd515',
               border: '2px solid #575655',
+              boxSizing: 'border-box',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
