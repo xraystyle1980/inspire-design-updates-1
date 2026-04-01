@@ -1,0 +1,136 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Inspire Design System — ADK (Astronaut / Light theme)
+   Token reference: GE – Astronaut Design System (Figma yck1tcUXgdQ5aYX6iUAwrO)
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── ADK Color tokens — Neutral ramp (Light / Astronaut) ────────────────── */
+
+:root {
+  --adk-a00:  #fafafa;   /* Base surface — page background              */
+  --adk-a10:  #f2f2f2;   /* L1 sections / hover states                  */
+  --adk-a20:  #e7e6e6;   /* L1 borders, dividers (component-level only) */
+  --adk-a30:  #cfcece;   /* Disabled borders, muted chrome              */
+  --adk-a40:  #b7b6b6;   /* Placeholder text, muted labels              */
+  --adk-a50:  #9e9d9d;   /* Mid neutral                                 */
+  --adk-a60:  #6f6e6d;   /* Secondary body text                         */
+  --adk-a70:  #575655;   /* Subdued body / subtitle text                */
+  --adk-a80:  #3f3e3d;   /* Primary body text                           */
+  --adk-a90:  #272625;   /* High-emphasis text                          */
+  --adk-a100: #000000;   /* Maximum contrast                            */
+
+  /* Brand */
+  --adk-brand-100: #fcd515;  /* Primary action yellow                   */
+
+  /* Semantic */
+  --adk-danger:  #da1e28;
+  --adk-warning: #f1c21b;
+  --adk-success: #24a148;
+  --adk-note:    #0f62fe;
+
+  /* ── Elevation (Elevation/ADK *) ──────────────────────────────────────── */
+  /* Source: published Figma effect styles                                   */
+  --elevation-base:    0 1px 4px  rgba(0, 0, 0, 0.18);   /* ADK Base    */
+  --elevation-height:  0 1px 8px  rgba(15, 14, 13, 0.18); /* ADK Height  */
+  --elevation-level-3: 0 8px 16px rgba(15, 14, 13, 0.24); /* ADK Level 3 */
+  --elevation-level-4: 0 1px 32px rgba(15, 14, 13, 0.18); /* ADK Level 4 */
+  --elevation-depth:   inset 0 1px 5px rgba(15, 14, 13, 0.10); /* Depth  */
+
+  /* ── Typography — families ───────────────────────────────────────────── */
+  /* GermanedgeSans    — headlines (focus + product)                        */
+  /* GermanedgeSansCn  — body, labels, buttons, inputs                      */
+  --font-headline: "GermanedgeSans", "Arial", sans-serif;
+  --font-body:     "GermanedgeSansCn", "Arial Narrow", "Arial", sans-serif;
+
+  /* ── Typography — scale (from Figma typeface page) ──────────────────── */
+  /* Focus headlines */
+  --type-focus-header-size:   24px; --type-focus-header-line:   24px; --type-focus-header-weight: 700;
+  /* Product headlines */
+  --type-headline-01-size: 12px; --type-headline-01-line: 16px; --type-headline-01-weight: 600;
+  --type-headline-02-size: 14px; --type-headline-02-line: 18px; --type-headline-02-weight: 600;
+  --type-headline-03-size: 18px; --type-headline-03-line: 24px; --type-headline-03-weight: 600;
+  /* Body */
+  --type-body-01-size: 12px; --type-body-01-line: 16px; --type-body-01-weight: 400;
+  --type-body-02-size: 14px; --type-body-02-line: 18px; --type-body-02-weight: 400;
+  /* Caption */
+  --type-caption-01-size: 8px;  --type-caption-01-line: 8px;
+  --type-caption-02-size: 12px; --type-caption-02-line: 12px;
+
+  /* ── Spacing scale (Spacing-01 → Spacing-10) ────────────────────────── */
+  --sp-01:  2px;
+  --sp-02:  4px;
+  --sp-03:  8px;
+  --sp-04: 12px;
+  --sp-05: 16px;
+  --sp-06: 20px;
+  --sp-07: 24px;
+  --sp-08: 32px;
+  --sp-09: 48px;
+  --sp-10: 64px;
+
+  /* Row heights */
+  --row-01: 24px;
+  --row-02: 32px;
+  --row-03: 40px;
+  --row-04: 48px;
+  --row-05: 56px;
+  --row-06: 64px;
+  --row-07: 72px;
+
+  /* ── Corner radius index ────────────────────────────────────────────── */
+  --radius-card:      4px;   /* Boardlet, standard card               */
+  --radius-tray-card: 8px;   /* Tray card (intentionally larger)      */
+  --radius-tag:       2px;   /* Tag / chip                            */
+  --radius-tooltip:   2px;   /* Tooltip                               */
+  --radius-toolbar:   4px 4px 0 0; /* Toolbar (top only)             */
+}
+
+/* ── Page shell ─────────────────────────────────────────────────────────── */
+/* L0 base surface — ADK A00                                                */
+
+.page {
+  min-height: 100%;
+  background: var(--adk-a00);
+  padding-block: var(--sp-09);  /* 48px top/bottom */
+  font-family: var(--font-body);
+  color: var(--adk-a80);
+}
+
+/* ── Container — 900 px centered column ─────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: var(--sp-05);  /* 16px — mobile default */
+}
+
+@media (min-width: 480px) {
+  .container { padding-inline: var(--sp-07); }  /* 24px */
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: var(--sp-08); }  /* 32px */
+}
+
+/* Tighten vertical page padding on smaller screens */
+@media (max-width: 767px) { .page { padding-block: var(--sp-08); } }  /* 32px */
+@media (max-width: 479px) { .page { padding-block: var(--sp-07); } }  /* 24px */
+
+/* ── Surface utility — L2 card / interactive area ───────────────────────── */
+/* No border (No-Line Rule). Elevation/ADK Base shadow lifts the surface.    */
+
+.surface {
+  background: #ffffff;
+  box-shadow: var(--elevation-base);
+  border-radius: var(--radius-card);
+}
